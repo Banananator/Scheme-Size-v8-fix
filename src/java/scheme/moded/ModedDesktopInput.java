@@ -17,6 +17,7 @@ import mindustry.input.*;
 import mindustry.input.Placement.NormalizeDrawResult;
 import mindustry.input.Placement.NormalizeResult;
 import mindustry.world.blocks.power.PowerNode;
+import schema.input.DesktopInput;
 import scheme.ai.GammaAI;
 import scheme.tools.BuildingTools.Mode;
 
@@ -24,6 +25,8 @@ import static arc.Core.*;
 import static mindustry.Vars.*;
 import static mindustry.input.PlaceMode.*;
 import static scheme.SchemeVars.*;
+
+import javax.naming.Binding;
 
 /** Last update - Apr 18, 2023 */
 public class ModedDesktopInput extends DesktopInput implements ModedInputHandler {
@@ -118,7 +121,7 @@ public class ModedDesktopInput extends DesktopInput implements ModedInputHandler
         }
 
         if (movementLocked && !scene.hasKeyboard() && observed == null) {
-            drawLocked(player.unit().x, player.unit().y);
+            if(player.unit() != null) drawLocked(player.unit().x, player.unit().y);
             panning = true; // panning is always enabled when unit movement is locked
 
             float speed = (input.keyDown(Binding.boost) ? panBoostSpeed : panSpeed) * Time.delta;

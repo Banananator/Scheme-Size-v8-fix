@@ -99,7 +99,7 @@ public class ModedMobileInput extends MobileInput implements ModedInputHandler {
         }
 
         buildInput();
-        if (movementLocked) drawLocked(player.unit().x, player.unit().y);
+        if (movementLocked && player.unit() != null) drawLocked(player.unit().x, player.unit().y);
     }
 
     @Override

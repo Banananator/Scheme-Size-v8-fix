@@ -30,7 +30,7 @@ public class AISelectDialog extends ListDialog {
 
         hidden(() -> {
             if (ai instanceof GammaAI gamma) gamma.cache();
-            if (ai instanceof MissileAI missile) missile.shooter = player.unit();
+            if (ai instanceof MissileAI missile && player.unit() != null) missile.shooter = player.unit();
         });
 
         Events.run(WorldLoadEvent.class, this::deselect);
@@ -69,9 +69,11 @@ public class AISelectDialog extends ListDialog {
     }
 
     public void update() {
-        ai.unit(player.unit());
-        ai.updateUnit();
-        player.shooting = player.unit().isShooting;
+        if(player.unit() != null){
+            ai.unit(player.unit());
+            ai.updateUnit();
+            player.shooting = player.unit().isShooting;
+        }
     }
 
     public void select() {

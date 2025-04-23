@@ -42,7 +42,7 @@ public interface AdminsTools {
     }
 
     public default void look() {
-        for (int i = 0; i < 10; i++) player.unit().lookAt(input.mouseWorld());
+        for (int i = 0; i < 10; i++) if(player.unit() != null) player.unit().lookAt(input.mouseWorld());
     }
 
     public void fill(int sx, int sy, int ex, int ey);

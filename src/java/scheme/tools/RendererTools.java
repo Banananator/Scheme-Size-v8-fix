@@ -57,7 +57,7 @@ public class RendererTools {
 
         Seq<Unit> units = unitInfo || unitRadius ? Groups.unit.intersect(bounds.x, bounds.y, bounds.width, bounds.height) : null;
 
-        if (unitInfo) Draw.draw(Layer.overlayUI, () -> units.each(unit -> unit != player.unit(), unit -> {
+        if (player.unit() != null) if (unitInfo) Draw.draw(Layer.overlayUI, () -> units.each(unit -> unit != player.unit(), unit -> {
             if (unit.isPlayer()) {
                 Tmp.v1.set(unit.aimX, unit.aimY).sub(unit).setLength(unit.hitSize);
                 Lines.stroke(2f, unit.team.color);

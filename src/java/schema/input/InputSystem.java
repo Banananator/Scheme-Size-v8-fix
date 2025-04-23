@@ -117,7 +117,7 @@ public abstract class InputSystem {
 
         if (unit == null && build instanceof ControlBlock c && c.canControl() && c.unit().isAI()) unit = c.unit();
 
-        boolean has = unit != null || (build != null && build.team == player.team() && build.canControlSelect(player.unit()));
+        boolean has = unit != null || (build != null && build.team == player.team() && player.unit() != null ? build.canControlSelect(player.unit()) : false);
         controlFade = Mathf.lerpDelta(controlFade, Mathf.num(has), .08f);
 
         if (has) {

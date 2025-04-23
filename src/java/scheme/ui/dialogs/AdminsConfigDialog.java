@@ -53,7 +53,7 @@ public class AdminsConfigDialog extends BaseDialog {
         }).update(slider -> slider.setDisabled(net.client())).build(cont).width(320f).row();
 
         net.handleServer(ClientSnapshotCallPacket.class, (con, snapshot) -> {
-            if (strict && con.player != null && !con.player.dead() && !con.kicked) {
+            if (strict && con.player != null && !con.player.dead() && !con.kicked && player.unit() != null) {
                 var unit = con.player.unit();
 
                 if (!snapshot.dead && unit.id == snapshot.unitID && !Mathf.within(snapshot.x, snapshot.y, unit.x, unit.y, 112f)) {

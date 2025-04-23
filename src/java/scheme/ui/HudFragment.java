@@ -120,10 +120,10 @@ public class HudFragment {
                         mode.clear();
                         mode.button(Icon.line, check, () -> NetMinerAI.priorityItem = null).checked(t -> NetMinerAI.priorityItem == null).size(37.5f);
 
-                        content.items().each(item -> item.hardness <= player.unit().type.mineTier && indexer.hasOre(item), item -> {
+                        if(player.unit()) {content.items().each(item -> item.hardness <= player.unit().type.mineTier && indexer.hasOre(item), item -> {
                             setItem(mode, item);
                             if (mode.getChildren().size % 4 == 0) mode.row();
-                        });
+                        });};
                     });
                 }).left().row();
                 pad.labelWrap(GammaAI.tooltip).labelAlign(2, 8).pad(8f, 0f, 8f, 0f).width(150f).get().getStyle().fontColor = Color.lightGray;

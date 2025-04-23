@@ -51,7 +51,7 @@ public interface ModedInputHandler {
 
     public default void flushBuildingTools() {
         if (build.mode != Mode.remove) flush(build.plan);
-        else build.plan.each(player.unit()::addBuild);
+        else if(player.unit() != null) build.plan.each(player.unit()::addBuild);
         build.plan.clear();
     }
 
