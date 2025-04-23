@@ -59,7 +59,7 @@ public class RendererTools {
 
         if (player.unit() != null) if (unitInfo) Draw.draw(Layer.overlayUI, () -> units.each(unit -> unit != player.unit(), unit -> {
             if (unit.isPlayer()) {
-                Tmp.v1.set(unit.aimX, unit.aimY).sub(unit).setLength(unit.hitSize);
+                Tmp.v1.set(unit.aimX, unit.aimY).sub(unit).setLength(unit.hitSize); 
                 Lines.stroke(2f, unit.team.color);
                 Lines.line(unit.x + Tmp.v1.x, unit.y + Tmp.v1.y, unit.aimX, unit.aimY);
             }
