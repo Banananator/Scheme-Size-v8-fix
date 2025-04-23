@@ -68,7 +68,7 @@ public class CommandFragment extends Table {
                 for (int i = 0; i < counts.length; i++) if (counts[i] > 0) {
 
                     var type = content.unit(i);
-                    int count = counts[i];
+                    int count = counts[i]; 
 
                     /*cont.table(t -> {
                         t.add(new ItemImage(type.uiIcon, count)).size(32f, 32f).tooltip(type.localizedName);
