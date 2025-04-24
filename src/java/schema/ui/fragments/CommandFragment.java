@@ -70,8 +70,8 @@ public class CommandFragment extends Table {
                     var type = content.unit(i);
                     int count = counts[i]; 
 
-                    /*cont.table(t -> {
-                        t.add(new ItemImage(type.uiIcon, count)).size(32f, 32f).tooltip(type.localizedName);
+                    cont.table(t -> {
+                        t.add(new Image(type.uiIcon, count)).size(32f, 32f).tooltip(type.localizedName);
                         t.addListener(new HandCursorListener());
 
                         t.clicked(KeyCode.mouseLeft, () -> insys.freeUnits(u -> u.type != type));
@@ -79,7 +79,7 @@ public class CommandFragment extends Table {
 
                         t.hovered(() -> t.background(Style.find("button-over")));
                         t.exited(() -> t.background(null));
-                    }).size(48f, 48f).touchable(Touchable.enabled);*/
+                    }).size(48f, 48f).touchable(Touchable.enabled);
 
                     commands.retainAll(c -> Structs.contains(type.commands, c));
                 }
